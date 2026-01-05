@@ -1,0 +1,8 @@
+node_modules
+.git
+.svelte-kit
+build
+backend/.venv
+backend/__pycache__
+backend/uploads
+backend/app.db

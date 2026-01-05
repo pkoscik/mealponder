@@ -1,0 +1,18 @@
+services:
+  backend:
+    build: ./backend
+    container_name: mealponder-api
+    ports:
+      - '8000:8000'
+    volumes:
+      - ./backend/data:/app/data
+    restart: always
+
+  frontend:
+    build: .
+    container_name: mealponder-ui
+    ports:
+      - '5173:5173'
+    depends_on:
+      - backend
+    restart: always
