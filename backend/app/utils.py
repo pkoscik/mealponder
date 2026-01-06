@@ -32,7 +32,7 @@ def save_upload_file(file: UploadFile) -> str:
         with open(file_path, "wb") as buffer:
             shutil.copyfileobj(file.file, buffer)
             
-        return f"http://localhost:8000/uploads/{filename}"
+        return f"/uploads/{filename}"
     except Exception as e:
         logger.error(f"File upload failed: {e}")
         raise HTTPException(status_code=500, detail="Could not save file")
