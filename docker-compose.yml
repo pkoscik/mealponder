@@ -2,8 +2,8 @@ services:
   backend:
     build: ./backend
     container_name: mealponder-api
-    ports:
-      - '8000:8000'
+    expose:
+      - "8000"
     volumes:
       - ./backend/data:/app/data
     restart: always
@@ -15,4 +15,6 @@ services:
       - '5173:5173'
     depends_on:
       - backend
+    environment:
+      - BACKEND_URL=http://backend:8000
     restart: always
